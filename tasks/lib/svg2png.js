@@ -29,10 +29,10 @@ var nextFile = function()
     frag.innerHTML = svgdata;
 
     svg = frag.querySelector('svg');
-    box = svg.getAttribute('viewBox').split(/\s+/);
+    box = svg.viewBox.baseVal;
     
-    height = box[3];
-    width = box[2];
+    height = box.height;
+    width = box.width;
 
     page.viewportSize = {
         width: parseFloat(width),
