@@ -12,7 +12,7 @@ var fs = require('fs'),
     total = files.length,
     next = 0,
 
-    file, svgdata, frag, svg, width, height, viewBox;
+    file, svgdata, frag, svg, width, height, box;
 
 var nextFile = function()
 {
@@ -29,10 +29,10 @@ var nextFile = function()
     frag.innerHTML = svgdata;
 
     svg = frag.querySelector('svg');
-    viewBox = svg.getAttribute('viewBox').split(/\s+/);
+    box = svg.getAttribute('viewBox').split(/\s+/);
     
-    height = viewBox[4];
-    width = viewBox[3];
+    height = box[3];
+    width = box[2];
 
     page.viewportSize = {
         width: parseFloat(width),
